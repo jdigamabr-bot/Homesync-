@@ -1,2 +1,0 @@
-# Homesync-
-homes control devices 
