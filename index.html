@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Home Control</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-icon">⌂</span>
+        <span>Home<span class="brand-light">Sync</span></span>
+      </div>
+
+      <p class="nav-label">MENU</p>
+      <nav>
+        <a href="#dashboard" class="nav-item active">▦ Dashboard</a>
+        <a href="#devices" class="nav-item">▣ My Devices</a>
+        <a href="#environment" class="nav-item">☼ Environment</a>
+        <a href="#energy" class="nav-item">ϟ Energy Usage</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-home">⌂</div>
+        <strong>My Smart Home</strong>
+        <p>Browser simulation</p>
+        <span class="connection"><i></i> System online</span>
+      </div>
+    </aside>
+
+    <main id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SMART LIVING / HOME</p>
+          <h1>Welcome home <span>✦</span></h1>
+          <p class="muted">Manage your home from one place.</p>
+        </div>
+        <div class="top-actions">
+          <span class="date" id="today">Today</span>
+          <button id="allOff" class="outline-button">⏻ All off</button>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-top"><span>Connected devices</span><span>▣</span></div>
+          <div class="metric" id="connectedCount">4 <small>/ 4</small></div>
+          <p class="muted">Devices available</p>
+        </article>
+        <article class="summary-card">
+          <div class="summary-top"><span>Active devices</span><span>◉</span></div>
+          <div class="metric" id="activeCount">2</div>
+          <p class="muted">Currently switched on</p>
+        </article>
+        <article class="summary-card">
+          <div class="summary-top"><span>Power estimate</span><span>ϟ</span></div>
+          <div class="metric"><span id="powerValue">60</span><small> W</small></div>
+          <p class="muted">Estimated current load</p>
+        </article>
+        <article class="summary-card">
+          <div class="summary-top"><span>Room temperature</span><span>♧</span></div>
+          <div class="metric">26<small>°C</small></div>
+          <p class="muted">Demo sensor reading</p>
+        </article>
+      </section>
+
+      <section class="section" id="devices">
+        <div class="section-heading">
+          <div>
+            <h2>Device controls</h2>
+            <p class="muted">Switch your appliances on or off.</p>
+          </div>
+          <span class="live-label"><i></i> LIVE DEMO</span>
+        </div>
+
+        <div class="device-grid">
+          <article class="device-card" data-device="light">
+            <div class="device-top">
+              <div class="device-icon yellow">☼</div>
+              <label class="switch">
+                <input type="checkbox" class="device-toggle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <h3>Living Room Light</h3>
+            <p class="device-status">● On</p>
+            <div class="control-row">
+              <label for="brightness">Brightness</label>
+              <strong id="brightnessValue">80%</strong>
+            </div>
+            <input id="brightness" class="range" type="range"
+                   min="0" max="100" value="80">
+          </article>
+
+          <article class="device-card" data-device="fan">
+            <div class="device-top">
+              <div class="device-icon blue">✺</div>
+              <label class="switch">
+                <input type="checkbox" class="device-toggle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <h3>Ceiling Fan</h3>
+            <p class="device-status">● On</p>
+            <div class="control-row">
+              <label for="fanSpeed">Fan speed</label>
+              <strong id="fanSpeedValue">3 / 5</strong>
+            </div>
+            <input id="fanSpeed" class="range" type="range"
+                   min="1" max="5" value="3">
+          </article>
+
+          <article class="device-card" data-device="ac">
+            <div class="device-top">
+              <div class="device-icon cyan">❄</div>
+              <label class="switch">
+                <input type="checkbox" class="device-toggle">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <h3>Air Conditioner</h3>
+            <p class="device-status">● Off</p>
+            <div class="control-row">
+              <label for="acTemp">Temperature</label>
+              <strong id="acTempValue">24°C</strong>
+            </div>
+            <input id="acTemp" class="range" type="range"
+                   min="16" max="30" value="24">
+          </article>
+
+          <article class="device-card" data-device="tv">
+            <div class="device-top">
+              <div class="device-icon purple">▣</div>
+              <label class="switch">
+                <input type="checkbox" class="device-toggle">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <h3>Smart Television</h3>
+            <p class="device-status">● Off</p>
+            <div class="device-footer">
+              <span>Entertainment</span>
+              <span class="device-chip">Living room</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel" id="environment">
+          <div class="section-heading">
+            <div>
+              <h2>Home environment</h2>
+              <p class="muted">Sample sensor readings</p>
+            </div>
+            <span class="weather-icon">☀</span>
+          </div>
+          <div class="environment-grid">
+            <div class="environment-item">
+              <span>Temperature</span>
+              <strong>26°C</strong>
+              <small>Room sensor demo</small>
+            </div>
+            <div class="environment-item">
+              <span>Humidity</span>
+              <strong>55%</strong>
+              <small>Room sensor demo</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" id="energy">
+          <div class="section-heading">
+            <div>
+              <h2>Energy overview</h2>
+              <p class="muted">Estimated device consumption</p>
+            </div>
+            <span class="energy-icon">ϟ</span>
+          </div>
+          <div class="energy-number"><strong id="energyTotal">60 W</strong>
+            <span>Current load</span></div>
+          <div class="energy-track"><span id="energyBar"></span></div>
+          <div class="energy-legend">
+            <span><i></i> Appliance load</span>
+            <span id="energyPercent">15% of 400 W</span>
+          </div>
+          <p class="footnote">Illustrative estimates, not meter readings.</p>
+        </article>
+      </section>
+
+      <section class="panel security-panel">
+        <div class="security-symbol">♧</div>
+        <div class="security-copy">
+          <h3>Home security mode</h3>
+          <p class="muted">Demo-only security status; no real alarm is connected.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="securityToggle">
+          <span class="slider"></span>
+        </label>
+        <strong id="securityStatus">Disarmed</strong>
+      </section>
+
+      <footer>
+        HomeSync · Student Mini Project · Frontend Simulation
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
